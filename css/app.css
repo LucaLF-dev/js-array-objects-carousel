@@ -118,3 +118,7 @@ section {
     bottom: 20px;
     padding-bottom: 3px;
 }
+
+.border--white {
+    border: 5px solid white;
+}

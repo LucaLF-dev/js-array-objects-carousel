@@ -32,10 +32,10 @@ for (let i = 0; i < imagesText.length; i++) {
 	const imagesCurrentElement = imagesText[i];
 	console.log(imagesCurrentElement);
 
-	const src = `${imagesCurrentElement.image}`;
+	const src = imagesCurrentElement.image;
 	console.log(src);
-	const title = `${imagesCurrentElement.title}`;
-	const text = `${imagesCurrentElement.text}`;
+	const title = imagesCurrentElement.title;
+	const text = imagesCurrentElement.text;
 
 	const htmlImg = `<div class="carousel__item"><img class="carousel__item--image" src="${src}" alt=""><div class="carousel__item--text"><h2>${title}</h2><p>${text}</p></div></div>`;
 
@@ -51,12 +51,18 @@ for (let i = 0; i < imagesText.length; i++) {
 const itemDOMElements = document.querySelectorAll(".carousel__item");
 console.log(itemDOMElements);
 
+const thumbItemDOMElement = document.querySelectorAll(".carousel__item--thumb")
+console.log(thumbItemDOMElement)
 // creo la variabile stato del carosello (indice della slide attiva)
 let currentIndex = 0;
 
 // aggiungo la classe active alla slide attiva
 let currentSlide = itemDOMElements[currentIndex];
 currentSlide.classList.add("active");
+
+let currentThumbImage = thumbItemDOMElement[currentIndex]
+currentThumbImage.classList.add("border--white")
+console.log(currentThumbImage)
 
 // funzioni carosello
 const arrowTop = document.querySelector(".carousel .arrow--top");
@@ -68,6 +74,7 @@ arrowBottom.addEventListener("click", function () {
 
 	const activeSlideElement = itemDOMElements[currentIndex];
 	activeSlideElement.classList.remove("active");
+    currentThumbImage.classList.remove("border--white")
 
 	if (currentIndex === itemDOMElements.length - 1) {
 		currentIndex = 0;
@@ -77,6 +84,8 @@ arrowBottom.addEventListener("click", function () {
 
 	const nextSlideElement = itemDOMElements[currentIndex];
 	nextSlideElement.classList.add("active");
+
+    
 });
 
 arrowTop.addEventListener("click", function () {
@@ -94,3 +103,5 @@ arrowTop.addEventListener("click", function () {
 	const nextSlideElement = itemDOMElements[currentIndex];
 	nextSlideElement.classList.add("active");
 });
+
+setTimeout 
